@@ -3,6 +3,15 @@
 @section('content')
 <div class="jumbotron jumbotron-fluid">
 <div class="container">
+        @if (\Session::has('pesan'))
+        <div class="alert alert-success">
+            <p>{{ \Session::get('pesan') }}</p>
+        </div>
+        @elseif (\Session::has('error'))
+        <div class="alert alert-danger">
+            <p>{{ \Session::get('error') }}</p>
+        </div>
+        @endif
     <h1>Blog Posts</h1>
         @if(count($posts)>0)
         @foreach ($posts as $post)

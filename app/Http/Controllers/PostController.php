@@ -42,12 +42,16 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|string|max:200',
+            'description' => 'required|string|max:2000'
+        ]);
         
     $post = new Post;
     $post->title = $request->input('title');
     $post->description = $request->input('description');
     $post->save();
-    return redirect('posts');   
+    return redirect('posts')->with('pesan', 'Data berhasil ditambahkan!');   
 
     }
 
@@ -98,7 +102,7 @@ class PostController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect('posts');
+        return redirect('posts')->with('pesan', 'Data berhasil diubah!');
     }
 
     /**
@@ -111,6 +115,6 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->delete();
-        return redirect('posts');
+        return redirect('posts')->with('pesan', 'Data berhasil dihapus!');
     }
 }

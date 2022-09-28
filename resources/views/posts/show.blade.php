@@ -13,7 +13,7 @@
     @method('DELETE')
     {{ csrf_field() }}
     <input type="hidden" name="id" value="{{ $posts->id }}"> <br>
-    <button type="submit" class="btn btn-danger">Delete</button>
+    <button type="submit" class="btn btn-danger" onclick="return confirm('Post akan dihapus')">Delete</button>
     </form>
 
     </div>
