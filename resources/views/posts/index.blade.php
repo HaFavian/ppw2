@@ -26,6 +26,13 @@
                     <h3>Tidak ada data.</h3>
                 @endif
 
+                Halaman : {{ $posts->currentPage() }} <br />
+                Jumlah Data : {{ $posts->total() }} <br />
+                Data Per Halaman : {{ $posts->perPage() }} <br />
+                <div class="d-flex">
+                {{ $posts->links() }}
+                </div>
+
             <a href="{{ route('posts.create') }}">Create New Post</a>
     </div>
 </div>
