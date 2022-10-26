@@ -47,3 +47,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('posts', 'App\Http\Controllers\PostController');
 
+
+Auth::routes([
+    'reset' => false,
+   ]);
+   
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
