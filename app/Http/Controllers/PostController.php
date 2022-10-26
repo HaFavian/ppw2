@@ -122,4 +122,16 @@ class PostController extends Controller
         $post->delete();
         return redirect('posts')->with('pesan', 'Data berhasil dihapus!');
     }
+
+    public function __construct()
+    {
+        $this->middleware('auth', ["except" => ["index", "show"]]);
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('login');
+    }
+
 }

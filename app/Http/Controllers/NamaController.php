@@ -6,5 +6,24 @@ use Illuminate\Http\Request;
 
 class NamaController extends Controller
 {
- //di sini isi controllernya
+ public function about() 
+ {
+    return view('about');
+ }
+
+ public function education() 
+ {
+    return view('education');
+ }
+
+ public function projects() 
+ {
+    return view('projects');
+ }
+
+ public function __construct()
+ {
+     $this->middleware('auth');
+ }
+
 }

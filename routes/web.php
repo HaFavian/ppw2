@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\NamaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('portohome');
+    return view('home');
 });
 
 // Route::get('/halo-dunia', function () {
@@ -29,21 +31,6 @@ Route::get('/ppw2', function() {
     return view('ppw2', ['data' => 'Contoh saja']);
    });
    
-Route::get('/about', function() {
-    return view('about');
-   });
-
-Route::get('/education', function() {
-    return view('education');
-   });
-
-Route::get('/projects', function() {
-    return view('projects');
-   });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('posts', 'App\Http\Controllers\PostController');
 
@@ -54,3 +41,9 @@ Auth::routes([
    
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/about', [NamaController::class, 'about'])->name('about');
+Route::get('/education', [NamaController::class, 'education'])->name('education');
+Route::get('/projects', [NamaController::class, 'projects'])->name('projects');
