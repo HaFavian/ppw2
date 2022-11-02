@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\NamaController;
+use App\Http\Controllers\SendEmailController;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +39,6 @@ Route::resource('posts', 'App\Http\Controllers\PostController');
 
 
 Auth::routes([
-    'reset' => false,
    ]);
    
 
@@ -47,3 +49,17 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/about', [NamaController::class, 'about'])->name('about');
 Route::get('/education', [NamaController::class, 'education'])->name('education');
 Route::get('/projects', [NamaController::class, 'projects'])->name('projects');
+
+Route::get('/send-email',function(){
+    $data = [
+    'name' => 'Penyubulus',
+    'body' => 'Testing Kirim Email'
+    ];
+    
+    Mail::to('pratama.hafizhfavian@gmail.com')->send(new SendEmail($data));
+    
+    dd("Email Berhasil dikirim.");
+   });
+
+Route::get('/send-email', [SendEmailController::class, 'index'])->name('kirim-email');
+Route::post('/post-email', [SendEmailController::class, 'store'])->name('post-email');

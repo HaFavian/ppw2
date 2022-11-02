@@ -20,6 +20,9 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ url('/posts') }}" class="nav-link">Blog Posts</a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{{ url('/send-email') }}" class="nav-link">Send Emails</a>
+      </li>
     </ul>
 
     <!-- Right navbar links -->
