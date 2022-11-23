@@ -7,6 +7,7 @@
     <small>Tanggal:
                 {{$posts->created_at}}</small>
     <p>{{$posts->description}}</p>
+    <img src="{{asset('storage/posts_image/'.$posts->picture)}}">
     <a href="/posts/{{$posts->id}}/edit" class="btn btn-primary">Edit</a>
 
     <form action="{{ route('posts.destroy', $posts->id) }}" method="POST">
