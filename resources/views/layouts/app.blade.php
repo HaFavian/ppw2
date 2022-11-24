@@ -15,6 +15,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('lte/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css') }}">
+
+  <link rel="stylesheet" href="{{ asset('lightbox2/dist/css/lightbox.min.css') }}">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -70,5 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('lte/plugins/bootstrap/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
+
+<script src="{{ asset('lightbox2/dist/js/lightbox-plus-jquery.min.js') }}"></script>
 </body>
 </html>
